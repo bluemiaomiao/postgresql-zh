@@ -1,27 +1,20 @@
-PostgreSQL Database Management System
+PostgreSQL数据库管理系统
 =====================================
 
-This directory contains the source code distribution of the PostgreSQL
-database management system.
+这个目录包含PostgreSQL的源代码发行版数据库管理系统。
 
-PostgreSQL is an advanced object-relational database management system
-that supports an extended subset of the SQL standard, including
-transactions, foreign keys, subqueries, triggers, user-defined types
-and functions.  This distribution also contains C language bindings.
+PostgreSQL是一种高级的对象关系数据库管理系统, 支持SQL标准的扩展子集，
+包括事务、外键、子查询、触发器、用户定义类型和功能。
+这个发行版还包含C语言绑定。
 
-PostgreSQL has many language interfaces, many of which are listed here:
+PostgreSQL有很多语言接口，这里列出了很多:
+https://www.postgresql.org/download/
 
-	https://www.postgresql.org/download/
+有关如何构建和安装的说明，请参阅文件INSTALL。
+该文件还列出了支持的操作系统和硬件平台和包含关于任何其他的信息构建
+或运行PostgreSQL所需的软件包系统。
+版权和许可信息可在文件的版权。其中包括一个全面的文档集分布, 
+它可以按照安装中描述的方式阅读指令。
 
-See the file INSTALL for instructions on how to build and install
-PostgreSQL.  That file also lists supported operating systems and
-hardware platforms and contains information regarding any other
-software packages that are required to build or run the PostgreSQL
-system.  Copyright and license information can be found in the
-file COPYRIGHT.  A comprehensive documentation set is included in this
-distribution; it can be read as described in the installation
-instructions.
-
-The latest version of this software may be obtained at
-https://www.postgresql.org/download/.  For more information look at our
-web site located at https://www.postgresql.org/.
+此软件的最新版本可于https://www.postgresql.org/download/。
+欲了解更多信息，请参阅我们的网址是https://www.postgresql.org/。
