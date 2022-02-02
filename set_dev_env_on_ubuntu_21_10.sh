@@ -11,7 +11,7 @@ echo '[2/7] 安装一些常用的开发工具...'
 sudo apt install tree unzip zip lrzsz bash-comp* vim diffutils uuid net-tools wget curl
 
 echo '[3/7] 安装编译 PostgreSQL 14.1 所需的开发库支持...'
-sudo apt install libreadline8 libreadline-dev readline-common readline-doc zlib1g zlib1g-dev lz4 liblz4-tool liblz4-dev icu-devtools icu-doc libicu-dev libicu67 gettext gettext-base gettext-doc gettext-el libgettextpo-dev libgettextpo0 flex flex-doc flexbackup flexbar flexc++ flexloader bison bison-doc libbison-dev krb5-* libkrb5-* libxslt1.1 libxslt1-dev libxml2-* openssl libssl-dev libssl-doc libossp-uuid-dev libossp-uuid16 python python3 python2-dev python3-dev python-pip tcl tcl-dev tcl-doc tcl-expect tcl-expect-dev perl libperl-dev libpam0g libpam0g-dev ldap-* libldap-2.5-0 libldap-common libldap2-dev libselinux1 libselinux1-dev libsystemd0 libsystemd-dev
+sudo apt install libreadline8 libreadline-dev readline-common readline-doc zlib1g zlib1g-dev lz4 liblz4-tool liblz4-dev icu-devtools icu-doc libicu-dev libicu67 gettext gettext-base gettext-doc gettext-el libgettextpo-dev libgettextpo0 flex flex-doc flexbackup flexbar flexc++ flexloader bison bison-doc libbison-dev krb5-* libkrb5-* libxslt1.1 libxslt1-dev libxml2-* openssl libssl-dev libssl-doc libossp-uuid-dev libossp-uuid16 python python3 python2-dev python3-dev python3-pip tcl tcl-dev tcl-doc tcl-expect tcl-expect-dev perl libperl-dev libpam0g libpam0g-dev ldap-* libldap-2.5-0 libldap-common libldap2-dev libselinux1 libselinux1-dev libsystemd0 libsystemd-dev
 
 echo '[4/7] 下载 PostgreSQL 源代码到 /root/postgresql ...'
 cd /root
