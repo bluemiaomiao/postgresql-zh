@@ -31,11 +31,11 @@
 #include "getopt_long.h"
 #include "utils/pidfile.h"
 
-#ifdef WIN32					/* on Unix, we don't need libpq */
+#ifdef WIN32					/* 在Unix上我们不使用libpq */
 #include "pqexpbuffer.h"
 #endif
 
-/* PID can be negative for standalone backend */
+/* PID 可以是非独立的后端 */
 typedef long pgpid_t;
 
 
@@ -70,11 +70,15 @@ typedef enum
 	RUN_AS_SERVICE_COMMAND
 } CtlCommand;
 
+// ---------------------------------------------------------------------------------------------------------------------
+// 定义一些默认值
+// ---------------------------------------------------------------------------------------------------------------------
+
 #define DEFAULT_WAIT	60
 
 #define USEC_PER_SEC	1000000
 
-#define WAITS_PER_SEC	10		/* should divide USEC_PER_SEC evenly */
+#define WAITS_PER_SEC	10		/* 是否应该平均划分USEC_PER_SEC */
 
 static bool do_wait = true;
 static int	wait_seconds = DEFAULT_WAIT;
@@ -117,6 +121,9 @@ static HANDLE shutdownHandles[2];
 #define postmasterProcess shutdownHandles[1]
 #endif
 
+// ---------------------------------------------------------------------------------------------------------------------
+// 定义函数
+// ---------------------------------------------------------------------------------------------------------------------
 
 static void write_stderr(const char *fmt,...) pg_attribute_printf(1, 2);
 static void do_advice(void);
@@ -197,9 +204,12 @@ write_eventlog(int level, const char *line)
 }
 #endif
 
+// ---------------------------------------------------------------------------------------------------------------------
+// 下面是功能实现部分
+// ---------------------------------------------------------------------------------------------------------------------
+
 /*
- * Write errors to stderr (or by equal means when stderr is
- * not available).
+ * 将错误写入到标准错误输出 (或者当标准错误输出不可用时使用该方法).
  */
 static void
 write_stderr(const char *fmt,...)
@@ -208,24 +218,22 @@ write_stderr(const char *fmt,...)
 
 	va_start(ap, fmt);
 #ifndef WIN32
-	/* On Unix, we just fprintf to stderr */
+	/* 在Unix上, 我们只需要将fprintf打印到标准错误输出 */
 	vfprintf(stderr, fmt, ap);
 #else
 
 	/*
-	 * On Win32, we print to stderr if running on a console, or write to
-	 * eventlog if running as a service
-	 */
-	if (pgwin32_is_service())	/* Running as a service */
+	 * 在Win32上, 我们将标准错误输出打印到一个正在运行的终端, 或者写到一个运行中的服务的事件日志中	 */
+	if (pgwin32_is_service())	/* 作为一个服务运行 */
 	{
-		char		errbuf[2048];	/* Arbitrary size? */
+		char		errbuf[2048];	/* 任意大小? */
 
 		vsnprintf(errbuf, sizeof(errbuf), fmt, ap);
 
 		write_eventlog(EVENTLOG_ERROR_TYPE, errbuf);
 	}
 	else
-		/* Not running as service, write to stderr */
+		/* 如果没有作为一个服务运行, 那么就写道终端 */
 		vfprintf(stderr, fmt, ap);
 #endif
 	va_end(ap);
